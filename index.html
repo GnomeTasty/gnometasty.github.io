@@ -103,20 +103,20 @@
         <div class="gradient-green text-white p-6 rounded-2xl shadow-lg flex flex-wrap items-center justify-between gap-6">
             <div>
                 <p class="text-xs font-bold uppercase tracking-widest opacity-80 mb-1">Milestone Achieved</p>
-                <h3 class="text-3xl font-extrabold">Year 1 Cost of Attendance: Fully Funded ✅</h3>
-                <p class="text-green-100 mt-1 text-sm">$82,350 in confirmed aid covers the revised $78,523 COA — with a $3,827 buffer for unexpected costs.</p>
+                <h3 class="text-3xl font-extrabold">Year 1 Off-Campus COA: Fully Funded ✅</h3>
+                <p class="text-green-100 mt-1 text-sm">$94,145 in confirmed aid covers the $77,628 off-campus COA — $13,217 verified buffer after SNAP food-restriction correction.</p></p>
             </div>
             <div class="flex gap-8 text-center shrink-0">
                 <div>
-                    <p class="text-3xl font-black">$78,523</p>
+                    <p class="text-3xl font-black">$77,628</p>
                     <p class="text-xs font-semibold opacity-80 uppercase tracking-wide">Off-Campus COA</p>
                 </div>
                 <div>
-                    <p class="text-3xl font-black">$82,350</p>
+                    <p class="text-3xl font-black">$94,145</p>
                     <p class="text-xs font-semibold opacity-80 uppercase tracking-wide">Confirmed Aid</p>
                 </div>
                 <div>
-                    <p class="text-3xl font-black text-green-200">+$3,827</p>
+                    <p class="text-3xl font-black text-green-200">+$13,217</p>
                     <p class="text-xs font-semibold opacity-80 uppercase tracking-wide">Safety Buffer</p>
                 </div>
             </div>
@@ -129,24 +129,24 @@
     <section aria-labelledby="hero-heading" class="container mx-auto mt-12 px-6">
         <div class="grid md:grid-cols-2 gap-12 items-center bg-white p-10 rounded-3xl shadow-xl border border-gray-100">
             <div>
-                <div class="flex items-center gap-4 mb-5">
+                <div class="flex items-center gap-4 mb-4">
                     <div class="w-20 h-20 rounded-full overflow-hidden border-4 border-purple-100 shadow-sm shrink-0 bg-gray-200">
                         <img src="https://avatars.githubusercontent.com/u/142328938?v=4" alt="Connor Headshot" class="w-full h-full object-cover">
                     </div>
                     <div class="flex flex-col gap-2">
                         <span class="inline-block bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full font-semibold uppercase tracking-wider">2026–2027 Academic Year</span>
-                        <span class="inline-block funded-badge text-xs px-3 py-1 rounded-full uppercase tracking-wider">✓ Tuition &amp; Living: Fully Funded</span>
+                        <span class="inline-block funded-badge text-xs px-3 py-1 rounded-full uppercase tracking-wider">✓ Tuition, Housing &amp; Meal Plan: Fully Funded</span>
                     </div>
                 </div>
 
                 <h2 id="hero-heading" class="text-5xl font-extrabold text-gray-950 leading-tight mb-4">
-                    Connor Lloyd: Securing the Final Step to an Electrical Engineering Degree.
+                    Connor Lloyd: Ready to Build the Future.
                 </h2>
                 <p class="text-lg text-gray-700 mb-3">
-                    Connor is a high-achieving math student accepted into the Kate Gleason College of Engineering at RIT. As a fully independent student with dual disabilities, he has navigated every official funding channel — and his tuition and apartment costs are now <strong>fully covered</strong>.
+                    Connor is a high-achieving math student accepted into the Kate Gleason College of Engineering at RIT. As a fully independent student with dual disabilities, he navigated every funding channel — and ACCES-VR's expanded support has now confirmed coverage for tuition, fees, <em>and</em> on-campus housing at University Commons.
                 </p>
                 <p class="text-lg text-gray-700 mb-8">
-                    The campaign has pivoted: help Connor arrive on campus ready to thrive — with reliable transportation, proper footwear for his mobility condition, and the gear to fit into campus life.
+                    The campaign now focuses on quality-of-life: a mobility scooter for navigating campus, kitchen appliances for home cooking, footwear for his mobility condition, and gear to fit into campus life.
                 </p>
                 <div class="flex flex-wrap gap-4">
                     <a href="#donate" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-150">
@@ -158,10 +158,72 @@
                 </div>
             </div>
 
-            <div class="thermometer-container bg-gray-50 p-6 rounded-2xl border border-gray-200 shadow-inner">
-                <h3 class="text-center font-semibold text-gray-700 mb-1">Quality-of-Life Goal: ${{ secondaryGoal.toLocaleString() }} — ${{ gapAmount.toLocaleString() }} Remaining</h3>
-                <p class="text-center text-xs text-green-700 font-bold mb-2">🎉 Primary Tuition + Living Goal: FULLY FUNDED ($78,523)</p>
-                <canvas id="fundingThermometer" role="img" aria-label="Stacked bar chart showing $25 donated via GoFundMe toward the $3,250 quality-of-life goal for a mobility scooter, cooking appliances, footwear, and campus gear"></canvas>
+            <div class="bg-gray-50 p-6 rounded-2xl border border-gray-200 shadow-inner flex flex-col gap-4">
+                <div class="text-center">
+                    <p class="text-xs font-bold uppercase tracking-widest text-gray-500 mb-1">Quality-of-Life Campaign</p>
+                    <p class="text-3xl font-black text-gray-900">${{ gapAmount.toLocaleString() }} <span class="text-base font-normal text-gray-500">still needed</span></p>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5 mt-2">
+                        <div class="h-2.5 rounded-full bg-purple-600 transition-all duration-700" :style="{ width: Math.min(100, Math.round((donationsTotal / secondaryGoal) * 100)) + '%' }"></div>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-1">${{ donationsTotal.toLocaleString() }} raised of ${{ secondaryGoal.toLocaleString() }} goal</p>
+                </div>
+                <div class="space-y-2">
+                    <p class="text-xs font-bold uppercase tracking-widest text-gray-400">Wishlist Breakdown</p>
+                    <div class="flex items-center gap-3 bg-white border border-gray-200 rounded-xl px-3 py-2">
+                        <span class="text-lg shrink-0">🛵</span>
+                        <div class="flex-1 min-w-0"><p class="text-xs font-bold text-gray-800 truncate">Mobility Scooter</p><p class="text-xs text-gray-400">Rascal Conquest 4-Wheel</p></div>
+                        <span class="text-sm font-black text-gray-900 shrink-0">$1,649</span>
+                    </div>
+                    <div class="flex items-center gap-3 bg-emerald-50 border border-emerald-300 rounded-xl px-3 py-2">
+                        <span class="text-lg shrink-0">🍳</span>
+                        <div class="flex-1 min-w-0"><p class="text-xs font-bold text-gray-800">Kitchen Bundle</p><p class="text-xs text-emerald-700 font-semibold">✅ Instant Pot donated by Julie!</p></div>
+                        <div class="text-right shrink-0"><p class="text-sm font-black text-gray-900">$280</p><p class="text-xs text-emerald-600 line-through">$500</p></div>
+                    </div>
+                    <div class="flex items-center gap-3 bg-emerald-50 border border-emerald-300 rounded-xl px-3 py-2">
+                        <span class="text-lg shrink-0">👟</span>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-xs font-bold text-gray-800">Footwear</p>
+                            <p class="text-xs text-emerald-700 font-semibold">✅ Etnies donated by Julie!</p>
+                            <p class="text-xs text-orange-600 font-semibold mt-0.5">Still needed: Timberland PRO (lab safety req.)</p>
+                        </div>
+                        <div class="text-right shrink-0"><p class="text-sm font-black text-gray-900">$150</p><p class="text-xs text-emerald-600 line-through">$196</p></div>
+                    </div>
+                    <div class="flex items-center gap-3 bg-gray-100 border border-gray-200 rounded-xl px-3 py-2 opacity-60">
+                        <span class="text-lg shrink-0">🐯</span>
+                        <div class="flex-1 min-w-0"><p class="text-xs font-bold text-gray-600 truncate">RIT Branded Gear</p><p class="text-xs text-green-600 font-semibold">✅ Covered by aid buffer</p></div>
+                        <span class="text-xs font-black text-gray-400 shrink-0">$106</span>
+                    </div>
+                    <div class="flex items-center gap-3 bg-gray-100 border border-gray-200 rounded-xl px-3 py-2 opacity-60">
+                        <span class="text-lg shrink-0">🎯</span>
+                        <div class="flex-1 min-w-0"><p class="text-xs font-bold text-gray-600 truncate">Campus Life Buffer</p><p class="text-xs text-green-600 font-semibold">✅ Covered by aid buffer</p></div>
+                        <span class="text-xs font-black text-gray-400 shrink-0">$300</span>
+                    </div>
+                </div>
+                <div class="border-t border-gray-200 pt-3">
+                    <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Contributions So Far</p>
+                    <div class="space-y-1.5">
+                        <div class="flex justify-between text-xs bg-purple-50 rounded-lg px-2 py-1">
+                            <span class="text-purple-700 font-semibold">Brandon Starkweather — GoFundMe</span>
+                            <span class="font-bold text-purple-900">$25 cash</span>
+                        </div>
+                        <div class="flex justify-between text-xs bg-purple-50 rounded-lg px-2 py-1">
+                            <span class="text-purple-700 font-semibold">Tim — GoFundMe</span>
+                            <span class="font-bold text-purple-900">$40 cash</span>
+                        </div>
+                        <div class="border-t border-gray-200 pt-1.5 mt-0.5">
+                            <p class="text-xs text-gray-400 uppercase tracking-wider font-bold mb-1">In-Kind (items shipped)</p>
+                            <div class="flex justify-between text-xs bg-emerald-50 rounded-lg px-2 py-1 mb-1">
+                                <span class="text-emerald-700 font-semibold">Julie — Instant Pot Duo Crisp</span>
+                                <span class="font-bold text-emerald-700">$220</span>
+                            </div>
+                            <div class="flex justify-between text-xs bg-emerald-50 rounded-lg px-2 py-1">
+                                <span class="text-emerald-700 font-semibold">Julie — Etnies Kingpin sneakers</span>
+                                <span class="font-bold text-emerald-700">$46</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#donate" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 rounded-xl text-center text-sm transition duration-150">Donate or Ship an Item →</a>
             </div>
             
         </div>
@@ -179,6 +241,7 @@
             </div>
         </div>
     </section>
+
     <!-- ═══════════════════════════════════════════════
          ACADEMICS
     ════════════════════════════════════════════════ -->
@@ -386,7 +449,7 @@
         <div class="bg-white p-10 rounded-3xl shadow-lg border border-gray-100">
             <div class="border-b border-gray-200 pb-6 mb-10">
                 <h2 id="analysis-heading" class="text-4xl font-bold text-gray-900">Connor's Total Transparency: The Funding Breakdown</h2>
-                <p class="text-lg text-gray-600 mt-2">Every dollar has been accounted for. By moving off-campus and eliminating the meal plan, the revised Cost of Attendance drops to <strong>$78,523</strong> — fully covered by $82,350 in confirmed aid. The campaign now focuses on quality-of-life essentials — including a mobility scooter, cooking appliances, and campus gear. Cash or items both welcome.</p>
+                <p class="text-lg text-gray-600 mt-2">Every dollar has been accounted for. By moving off-campus and eliminating the meal plan, the revised Cost of Attendance drops to <strong>$77,628</strong> — fully covered by $94,145 in confirmed aid. The campaign now focuses on quality-of-life essentials — including a mobility scooter, cooking appliances, and campus gear. Cash or items both welcome.</p>
             </div>
 
             <!-- Resilience narrative -->
@@ -408,7 +471,7 @@
                 <div class="space-y-6">
                     <h4 class="text-2xl font-semibold text-gray-900 border-l-4 border-purple-500 pl-3">Connor's Year 1 Costs — Off-Campus</h4>
                     <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
-                        <canvas id="costBreakdownChart" role="img" aria-label="Doughnut chart showing revised year 1 cost breakdown: Tuition $64,833, Off-Campus Apartment $10,800 (no meal plan), Books $1,100, Transportation $1,000, Other $790. Total: $78,523."></canvas>
+                        <canvas id="costBreakdownChart" role="img" aria-label="Doughnut chart: Tuition $65,038, Apartment Rent $10,800, Books $1,000, Transportation $0, Other $790. Total: $77,628."></canvas>
                     </div>
                     <div class="bg-emerald-50 border border-emerald-200 p-4 rounded-xl text-sm text-emerald-800">
                         <strong>Housing change:</strong> Off-campus apartment at $900/month ($10,800/yr) replaces on-campus room &amp; board ($17,370/yr). <strong>Savings: $6,570/yr.</strong> Meal plan eliminated — Connor self-cooks with SNAP benefits.
@@ -418,7 +481,7 @@
                 <div class="md:col-span-2 space-y-4">
                     <div class="flex items-center justify-between mb-2">
                         <h4 class="text-2xl font-semibold text-gray-900 border-l-4 border-green-500 pl-3">Connor's Primary Aid — COA Fully Covered</h4>
-                        <span class="bg-green-100 text-green-800 text-xs font-bold px-3 py-1 rounded-full uppercase">$82,350 Total</span>
+                        <span class="bg-green-100 text-green-800 text-xs font-bold px-3 py-1 rounded-full uppercase">$94,145 Total</span>
                     </div>
                     <div class="grid sm:grid-cols-2 gap-3">
                         <div v-for="source in primarySources" :key="source.name" class="p-4 rounded-xl border bg-green-50 border-green-200">
@@ -434,8 +497,8 @@
                     <div class="gradient-green text-white p-5 rounded-xl mt-2 flex items-center gap-6">
                         <div class="text-4xl shrink-0">✅</div>
                         <div>
-                            <p class="font-extrabold text-lg">Connor's COA Fully Funded — $3,827 Safety Buffer</p>
-                            <p class="text-green-100 text-sm mt-1">$82,350 confirmed aid − $78,523 revised COA = <strong>+$3,827</strong>. This buffer covers unexpected expenses, co-op transition gaps, or benefit timing delays without derailing the academic plan.</p>
+                            <p class="font-extrabold text-lg">Connor's COA Fully Funded — $13,217 Verified Buffer ✅</p>
+                            <p class="text-green-100 text-sm mt-1">$94,145 confirmed aid − $77,628 off-campus COA = <strong>+$16,517</strong> gross. Correcting for SNAP food restriction (−$3,300): <strong>+$13,217 true flexible buffer</strong>. TA confirmed. RIT appeal granted. All ACCES-VR components locked.</p>
                         </div>
                     </div>
                 </div>
@@ -535,7 +598,7 @@
             <!-- Donor cards -->
             <h3 class="text-xl font-bold text-gray-800 mb-4">GoFundMe Donors</h3>
             <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
-                <!-- GoFundMe seed -->
+                <!-- Brandon -->
                 <div class="bg-gradient-to-br from-green-50 to-emerald-50 border border-green-200 rounded-2xl p-5 flex flex-col gap-3 shadow-sm">
                     <div class="flex items-center gap-3">
                         <div aria-hidden="true" class="w-12 h-12 rounded-full bg-green-600 flex items-center justify-center text-white font-extrabold text-lg shadow shrink-0">B</div>
@@ -544,14 +607,38 @@
                             <p class="text-green-700 font-black text-xl">$25</p>
                         </div>
                     </div>
-                    <div>
-                        <span class="inline-block text-xs font-bold bg-green-200 text-green-900 px-2 py-0.5 rounded-full uppercase tracking-wide mb-1">2026 · GoFundMe Seed</span>
-                        <p class="text-xs text-gray-500 leading-snug">Opening donation to launch the campaign and establish social proof for other donors.</p>
-                    </div>
+                    <span class="inline-block text-xs font-bold bg-green-200 text-green-900 px-2 py-0.5 rounded-full uppercase tracking-wide w-fit">2026 · GoFundMe Seed</span>
+                    <p class="text-xs text-gray-500 leading-snug">Opening donation to launch the campaign and establish social proof.</p>
                 </div>
-                <!-- Placeholder slots -->
-                <div v-for="n in 3" :key="n" class="bg-gray-50 border-2 border-dashed border-gray-200 rounded-2xl p-5 flex flex-col items-center justify-center gap-2 text-center">
-                    <div aria-hidden="true" class="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center text-gray-400 font-extrabold text-xl shrink-0">?</div>
+                <!-- Tim -->
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-5 flex flex-col gap-3 shadow-sm">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center text-white font-extrabold text-lg shadow shrink-0">T</div>
+                        <div>
+                            <p class="font-extrabold text-gray-900 text-sm leading-tight">Tim</p>
+                            <p class="text-blue-700 font-black text-xl">$40</p>
+                        </div>
+                    </div>
+                    <span class="inline-block text-xs font-bold bg-blue-200 text-blue-900 px-2 py-0.5 rounded-full uppercase tracking-wide w-fit">2026 · GoFundMe</span>
+                    <p class="text-xs text-gray-500 leading-snug">Generous GoFundMe contribution helping close the quality-of-life gap.</p>
+                </div>
+                <!-- Julie -->
+                <div class="bg-gradient-to-br from-emerald-50 to-teal-50 border-2 border-emerald-400 rounded-2xl p-5 flex flex-col gap-3 shadow-md">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-full bg-emerald-600 flex items-center justify-center text-white font-extrabold text-lg shadow shrink-0">J</div>
+                        <div>
+                            <p class="font-extrabold text-gray-900 text-sm leading-tight">Julie</p>
+                            <p class="text-emerald-700 font-black text-xl">$266 in-kind</p>
+                        </div>
+                    </div>
+                    <span class="inline-block text-xs font-bold bg-emerald-200 text-emerald-900 px-2 py-0.5 rounded-full uppercase tracking-wide w-fit">2026 · Amazon Wishlist</span>
+                    <p class="text-xs text-gray-800 font-semibold">🍳 Instant Pot Duo Crisp — $220</p>
+                    <p class="text-xs text-gray-800 font-semibold">👟 Etnies Kingpin sneakers — $46</p>
+                    <p class="text-xs text-gray-500 leading-snug mt-1">Both items shipped directly from the Amazon wishlist.</p>
+                </div>
+                <!-- Open slot -->
+                <div class="bg-gray-50 border-2 border-dashed border-gray-200 rounded-2xl p-5 flex flex-col items-center justify-center gap-2 text-center">
+                    <div class="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center text-gray-400 font-extrabold text-xl shrink-0">?</div>
                     <p class="font-bold text-gray-400 text-sm">Your name here</p>
                     <p class="text-gray-400 text-xs">Donate cash or ship an item directly.</p>
                 </div>
@@ -590,14 +677,14 @@
                         <span class="text-xl shrink-0">🍳</span>
                         <div>
                             <p class="font-bold text-white text-sm leading-tight">Cooking Appliances</p>
-                            <p class="text-amber-300 font-black text-base">$500</p>
+                            <p class="text-amber-300 font-black text-base">$280</p>
                         </div>
                     </div>
                     <div class="bg-white/10 rounded-xl px-4 py-3 flex items-center gap-3">
                         <span class="text-xl shrink-0">👟</span>
                         <div>
                             <p class="font-bold text-white text-sm leading-tight">Supportive Footwear</p>
-                            <p class="text-amber-300 font-black text-base">$196</p>
+                            <p class="text-amber-300 font-black text-base">$150</p>
                         </div>
                     </div>
                     <div class="bg-white/10 rounded-xl px-4 py-3 flex items-center gap-3">
@@ -690,40 +777,47 @@
             // Transportation: $1,000  (unchanged)
             // Other:            $790  (unchanged)
             // TOTAL:         $78,523  (was $85,093 — saves $6,570/yr)
-            const coaTotal = 78523;
+            const coaTotal = 77628;
 
             const costData = {
-                tuition:      64833,
-                housingBoard: 10800,  // apartment only, NO meal plan
-                booksSupplies: 1100,
-                transportation: 1000,
-                other: 790
+                tuition:        65038,  // tuition + all fees + orientation
+                housingBoard:   10800,  // off-campus apartment $900/month × 12
+                booksSupplies:   1000,  // covered by ACCES-VR course materials
+                transportation:     0,  // DSO shuttle confirmed
+                other:            790
             };
 
             // ── SECONDARY FUNDRAISING GOAL (quality of life) ──
-            const secondaryGoal = ref(2751);
+            const secondaryGoal = ref(2069);
 
-            // ── PRIMARY AID SOURCES (covers COA — $82,350 total) ──
+            // ── PRIMARY AID SOURCES (covers COA) ──
             const primarySources = ref([
                 { name: 'RIT Institutional Grant',  secured: 26200, description: 'Need-based grant from RIT for 2026–2027. No repayment required.', color: '#60a5fa' },
                 { name: 'RIT Trustee Scholarship',  secured: 21000, description: 'Renewable merit scholarship based on academic excellence.', color: '#a78bfa' },
-                { name: 'Federal Pell Grant',        secured:  7395, description: 'Maximum Pell Grant secured via Dependency Override (independent student status).', color: '#4ade80' },
-                { name: 'NY State TAP Award',        secured:  3525, description: 'New York State Tuition Assistance Program award based on demonstrated financial need.', color: '#34d399' },
-                { name: 'Federal SEOG Grant',        secured:   800, description: 'Federal Supplemental Educational Opportunity Grant for exceptional financial need.', color: '#86efac' },
-                { name: 'Subsidized Direct Loan',   secured:  5500, description: 'Federal loan (6.39% interest). No interest accrues while enrolled full-time.', color: '#fbbf24' },
+                { name: 'RIT Appeal Grant ($1k/sem)', secured: 2000, description: 'Request for additional financial assistance based on exceptional circumstances.', color: '#c084fc' },
+                { name: 'Federal Pell Grant', secured:  7395, description: 'Maximum Pell Grant secured via Dependency Override (independent student status).', color: '#4ade80' },
+                { name: 'NY State TAP Award', secured:  3525, description: 'New York State Tuition Assistance Program award based on demonstrated financial need.', color: '#34d399' },
+                { name: 'Federal SEOG Grant', secured:   800, description: 'Federal Supplemental Educational Opportunity Grant for exceptional financial need.', color: '#86efac' },
+                { name: 'Subsidized Direct Loan', secured:  5500, description: 'Federal loan (6.39% interest). No interest accrues while enrolled full-time.', color: '#fbbf24' },
                 { name: 'Unsubsidized Direct Loan', secured:  2000, description: 'Federal loan (6.39% interest). Interest accrues during enrollment.', color: '#f97316' },
-                { name: 'ACCES-VR Tuition Support', secured:  7070, description: 'Confirmed at $3,535/semester. NY Vocational Rehabilitation tuition support at the SUNY/CUNY rate. IPE finalized.', color: '#6366f1' },
-                { name: 'County TA — Rent Assist.', secured:  4560, description: '$380/month × 12 months. Applied directly toward apartment rent through Monroe County Department of Human Services.', color: '#0f6e56' },
-                { name: 'SNAP / EBT Benefits',      secured:  3300, description: '$275/month in food assistance covers groceries. Connor self-cooks all meals, supplemented by food banks.', color: '#10b981' },
+                { name: 'ACCES-VR — Tuition ($3,535/sem)', secured: 7070, description: 'Tuition component at SUNY rate · $3,535/semester · $7,070/year.', color: '#6366f1' },
+                { name: 'ACCES-VR — Fees ($950/sem)', secured: 1900, description: 'Mandatory fees component · $950/semester · $1,900/year.', color: '#7c3aed' },
+                { name: 'ACCES-VR — Housing ($3,000/sem)', secured: 6000, description: 'Off-campus housing support · $3,000/semester · $6,000/year. Applied toward apartment rent alongside TA assistance.', color: '#8b5cf6' },
+                { name: 'ACCES-VR — Course Materials ($915/sem)', secured: 1830, description: 'Confirmed June 2026: books, calculators, lab supplies. $915/semester = $1,830/year. Exceeds $1,000 COA books budget by $830.', color: '#a78bfa' },
+                { name: 'Monroe Co. TA — Rent (confirmed)', secured: 4560, description: '$380/month × 12 = $4,560/year. Confirmed for off-campus apartment. Applied directly toward rent. Recertify every 6 months with Monroe Co. DHS.', color: '#0f6e56' },
+                { name: 'SNAP / EBT Benefits',  secured: 3300, description: '$275/month × 12 = $3,300/year. Food-only EBT card — covers groceries. Cannot be applied to rent, tuition, or TigerBucks.', color: '#10b981' },
                 { name: 'Brandon — Deposit #1 (2025)', secured: 500,  description: 'Brandon\'s first $500 deposit made in 2025 during the first enrollment attempt. Held and carried forward when funding fell short. Applied to Connor\'s COA commitment.', color: '#f59e0b' },
                 { name: 'Brandon — Deposit #2 (2026)', secured: 500,  description: 'Brandon\'s second $500 deposit confirming renewed commitment for Fall 2026 enrollment. Together with Deposit #1, represents a $1,000 sibling investment in Connor\'s future.', color: '#d97706' },
             ]);
-            // Total primary: 26200+21000+7395+3525+800+5500+2000+7070+4560+3300+500+500 = $82,350
-            // COA: $78,523 → SURPLUS: +$3,827
 
             // ── DONATIONS (secondary goal) ──
             const donors = ref([
-                { name: 'Brandon Starkweather', amount: 25,  year: 2026, relation: 'Brother — GoFundMe Seed', note: 'Initial GoFundMe donation to open the campaign and establish social proof.' },
+                // ── Cash donations (count toward gap) ──
+                { name: 'Brandon Starkweather', amount: 25,  type: 'cash',   year: 2026, relation: 'Brother — GoFundMe Seed',   note: 'Initial GoFundMe donation to open the campaign and establish social proof.' },
+                { name: 'Tim',                  amount: 40,  type: 'cash',   year: 2026, relation: 'GoFundMe Donor',            note: 'Generous GoFundMe contribution helping close the quality-of-life gap.' },
+                // ── In-kind donations (reduce goal, shown display-only) ──
+                { name: 'Julie',                amount: 220, type: 'inkind', year: 2026, relation: 'Amazon Wishlist — In-Kind', note: 'Donated the Instant Pot 6.5qt Duo Crisp. Purchase price: $220. Shipped directly.' },
+                { name: 'Julie',                amount: 46,  type: 'inkind', year: 2026, relation: 'Amazon Wishlist — In-Kind', note: "Donated the Etnies Men\'s Kingpin sneakers. Purchase price: $46. Shipped directly." },
             ]);
 
             // ── QUALITY OF LIFE ITEMS ──
@@ -739,7 +833,7 @@
                 {
                   icon: '🍳',
                   name: 'Cooking Appliances',
-                  amount: 500,
+                  amount: 280,
                   tag: 'Practical Necessity',
                   wishlist: 'https://www.amazon.com/hz/wishlist/ls/2FPS3TKTAQW8I?ref_=wl_share',
                   description: 'Connor cooks every meal himself — no campus meal plan. An air fryer, electric pressure cooker, and food processor make healthy meal prep fast and affordable on a tight budget. Individual appliances can be purchased and shipped directly.'
@@ -747,7 +841,7 @@
                 {
                   icon: '👟',
                   name: 'Supportive Footwear',
-                  amount: 196,
+                  amount: 150,
                   tag: 'Medical Need',
                   wishlist: 'https://www.amazon.com/hz/wishlist/ls/26EZCJNWU98OE',
                   description: 'One pair for lab work and one for comfort. Quality orthopedic shoes designed for pes planus (fallen arches). RIT involves significant daily walking — proper footwear directly reduces pain and improves mobility.'
@@ -755,7 +849,7 @@
                 {
                   icon: '🐯',
                   name: 'RIT Branded Gear',
-                  amount: 106,
+                  amount: 0,
                   tag: 'Campus Integration',
                   wishlist: 'https://www.amazon.com/hz/wishlist/ls/29Z401Q6IJ9E2?ref_=wl_share',
                   description: 'Campus clothing and school merchandise. Fitting in matters — especially for an autistic student navigating a new social environment. RIT Campus Store gift cards are welcome.'
@@ -763,7 +857,7 @@
                 {
                   icon: '🎯',
                   name: 'Campus Life Buffer',
-                  amount: 300,
+                  amount: 0,
                   tag: 'Quality of Life',
                   wishlist: '',
                   description: 'Club fees, social events, and the small costs of a vibrant student life that no grant covers. A meaningful social experience is part of a complete college education.'
@@ -771,7 +865,10 @@
             ]);
 
             // ── COMPUTED ──
-            const donationsTotal = computed(() => donors.value.reduce((sum, d) => sum + d.amount, 0));
+            // cashTotal drives the gap calculation — in-kind value is already reflected in secondaryGoal
+            const cashTotal    = computed(() => donors.value.filter(d => d.type === 'cash').reduce((sum, d) => sum + d.amount, 0));
+            const inKindTotal  = computed(() => donors.value.filter(d => d.type === 'inkind').reduce((sum, d) => sum + d.amount, 0));
+            const donationsTotal = computed(() => cashTotal.value);  // reactive alias
             const gapAmount = computed(() => Math.max(0, secondaryGoal.value - donationsTotal.value));
 
             const shareCampaign = async () => {
@@ -795,56 +892,34 @@
             onMounted(() => {
                 document.querySelectorAll('svg:not([role="img"])').forEach(svg => svg.setAttribute('aria-hidden', 'true'));
 
-                // ── Thermometer: secondary goal progress ──
-                const ctxTherm = document.getElementById('fundingThermometer').getContext('2d');
-                new Chart(ctxTherm, {
-                    type: 'bar',
-                    data: {
-                        labels: ['Quality-of-Life Goal'],
-                        datasets: [
-                            { label: 'Donated (Brandon)', data: [donationsTotal.value], backgroundColor: '#7c3aed', borderWidth: 0, stack: 'Stack 0' },
-                            { label: 'Remaining', data: [gapAmount.value], backgroundColor: '#e5e7eb', borderWidth: 2, borderColor: '#f59e0b', borderDash: [5,5], stack: 'Stack 0' }
-                        ]
-                    },
-                    options: {
-                        plugins: {
-                            legend: { display: true, position: 'bottom', labels: { boxWidth: 12 } },
-                            tooltip: { callbacks: { label: (ctx) => `${ctx.dataset.label}: $${ctx.raw.toLocaleString()}` } }
+                // ── Cost breakdown doughnut ──
+                const costCanvas = document.getElementById('costBreakdownChart');
+                if (costCanvas) {
+                    const ctxCost = costCanvas.getContext('2d');
+                    new Chart(ctxCost, {
+                        type: 'doughnut',
+                        data: {
+                            labels: ['Tuition & Fees ($65,038)', 'Apartment Rent ($10,800)', 'Books & Supplies ($1,000)', 'Transportation ($0)', 'Other ($790)'],
+                            datasets: [{
+                                data: [costData.tuition, costData.housingBoard, costData.booksSupplies, costData.transportation, costData.other],
+                                backgroundColor: ['#7c3aed', '#059669', '#ddd6fe', '#e9d5ff', '#f5f3ff'],
+                                borderWidth: 2,
+                                borderColor: '#ffffff'
+                            }]
                         },
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        scales: {
-                            x: { stacked: true, display: false },
-                            y: { stacked: true, beginAtZero: true, max: secondaryGoal.value, ticks: { callback: (v) => '$' + v.toLocaleString() } }
+                        options: {
+                            plugins: {
+                                legend: { display: true, position: 'bottom', labels: { boxWidth: 10, padding: 12, font: { size: 10 } } },
+                                tooltip: { callbacks: { label: (ctx) => ctx.label } }
+                            },
+                            responsive: true,
+                            maintainAspectRatio: true,
                         }
-                    }
-                });
-
-                // ── Cost breakdown doughnut (updated for off-campus) ──
-                const ctxCost = document.getElementById('costBreakdownChart').getContext('2d');
-                new Chart(ctxCost, {
-                    type: 'doughnut',
-                    data: {
-                        labels: ['Tuition & Fees ($64,833)', 'Apartment Rent ($10,800)', 'Books & Supplies ($1,100)', 'Transportation ($1,000)', 'Other ($790)'],
-                        datasets: [{
-                            data: [costData.tuition, costData.housingBoard, costData.booksSupplies, costData.transportation, costData.other],
-                            backgroundColor: ['#7c3aed', '#059669', '#ddd6fe', '#c4b5fd', '#f5f3ff'],
-                            borderWidth: 2,
-                            borderColor: '#ffffff'
-                        }]
-                    },
-                    options: {
-                        plugins: {
-                            legend: { display: true, position: 'bottom', labels: { boxWidth: 10, padding: 12, font: { size: 10 } } },
-                            tooltip: { callbacks: { label: (ctx) => ctx.label } }
-                        },
-                        responsive: true,
-                        maintainAspectRatio: true,
-                    }
-                });
+                    });
+                }
             });
 
-            return { secondaryGoal, primarySources, donors, donationsTotal, gapAmount, qualityOfLifeItems, shareCampaign };
+            return { secondaryGoal, primarySources, donors, cashTotal, inKindTotal, donationsTotal, gapAmount, qualityOfLifeItems, shareCampaign };
         }
     }).mount('#app');
 </script>
