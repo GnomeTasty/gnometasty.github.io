@@ -104,20 +104,16 @@
             <div>
                 <p class="text-xs font-bold uppercase tracking-widest opacity-80 mb-1">Milestone Achieved</p>
                 <h3 class="text-3xl font-extrabold">Year 1 Off-Campus COA: Fully Funded ✅</h3>
-                <p class="text-green-100 mt-1 text-sm">$94,145 in confirmed aid covers the $77,628 off-campus COA — $13,217 verified buffer after SNAP food-restriction correction.</p></p>
+                <p class="text-green-100 mt-1 text-sm">$89,690 in confirmed aid covers the $85,723 off-campus COA.</p></p>                
             </div>
             <div class="flex gap-8 text-center shrink-0">
                 <div>
-                    <p class="text-3xl font-black">$77,628</p>
+                    <p class="text-3xl font-black">$85,723</p>
                     <p class="text-xs font-semibold opacity-80 uppercase tracking-wide">Off-Campus COA</p>
                 </div>
                 <div>
-                    <p class="text-3xl font-black">$94,145</p>
+                    <p class="text-3xl font-black">$89,690</p>
                     <p class="text-xs font-semibold opacity-80 uppercase tracking-wide">Confirmed Aid</p>
-                </div>
-                <div>
-                    <p class="text-3xl font-black text-green-200">+$13,217</p>
-                    <p class="text-xs font-semibold opacity-80 uppercase tracking-wide">Safety Buffer</p>
                 </div>
             </div>
         </div>
@@ -449,7 +445,7 @@
         <div class="bg-white p-10 rounded-3xl shadow-lg border border-gray-100">
             <div class="border-b border-gray-200 pb-6 mb-10">
                 <h2 id="analysis-heading" class="text-4xl font-bold text-gray-900">Connor's Total Transparency: The Funding Breakdown</h2>
-                <p class="text-lg text-gray-600 mt-2">Every dollar has been accounted for. By moving off-campus and eliminating the meal plan, the revised Cost of Attendance drops to <strong>$77,628</strong> — fully covered by $94,145 in confirmed aid. The campaign now focuses on quality-of-life essentials — including a mobility scooter, cooking appliances, and campus gear. Cash or items both welcome.</p>
+                <p class="text-lg text-gray-600 mt-2">Every dollar has been accounted for. By moving off-campus and cooking as much as possible, the revised Cost of Attendance drops to <strong>$85,723</strong> — fully covered by $89,690 in confirmed aid. The campaign now focuses on quality-of-life essentials — including a mobility scooter, cooking appliances, and campus gear. Cash or items both welcome.</p>
             </div>
 
             <!-- Resilience narrative -->
@@ -471,17 +467,17 @@
                 <div class="space-y-6">
                     <h4 class="text-2xl font-semibold text-gray-900 border-l-4 border-purple-500 pl-3">Connor's Year 1 Costs — Off-Campus</h4>
                     <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
-                        <canvas id="costBreakdownChart" role="img" aria-label="Doughnut chart: Tuition $65,038, Apartment Rent $10,800, Books $1,000, Transportation $0, Other $790. Total: $77,628."></canvas>
+                        <canvas id="costBreakdownChart" role="img" aria-label="Doughnut chart: Tuition $63,508, Apartment Rent $10,200, Books $1,100, Transportation $1000, Other $790. Total: $77,923."></canvas>
                     </div>
                     <div class="bg-emerald-50 border border-emerald-200 p-4 rounded-xl text-sm text-emerald-800">
-                        <strong>Housing change:</strong> Off-campus apartment at $900/month ($10,800/yr) replaces on-campus room &amp; board ($17,370/yr). <strong>Savings: $6,570/yr.</strong> Meal plan eliminated — Connor self-cooks with SNAP benefits.
+                        <strong>Housing change:</strong> Off-campus apartment at $900/month ($10,800/yr) replaces on-campus room &amp; board ($17,370/yr). <strong>Savings: $6,570/yr.</strong> Meal plan reduced — Connor self-cooks with SNAP benefits.
                     </div>
                 </div>
 
                 <div class="md:col-span-2 space-y-4">
                     <div class="flex items-center justify-between mb-2">
                         <h4 class="text-2xl font-semibold text-gray-900 border-l-4 border-green-500 pl-3">Connor's Primary Aid — COA Fully Covered</h4>
-                        <span class="bg-green-100 text-green-800 text-xs font-bold px-3 py-1 rounded-full uppercase">$94,145 Total</span>
+                        <span class="bg-green-100 text-green-800 text-xs font-bold px-3 py-1 rounded-full uppercase">$89,690 Total</span>
                     </div>
                     <div class="grid sm:grid-cols-2 gap-3">
                         <div v-for="source in primarySources" :key="source.name" class="p-4 rounded-xl border bg-green-50 border-green-200">
@@ -493,14 +489,7 @@
                             <p class="text-xs text-gray-500 mt-1 leading-snug">{{ source.description }}</p>
                         </div>
                     </div>
-                    <!-- Surplus callout -->
-                    <div class="gradient-green text-white p-5 rounded-xl mt-2 flex items-center gap-6">
-                        <div class="text-4xl shrink-0">✅</div>
-                        <div>
-                            <p class="font-extrabold text-lg">Connor's COA Fully Funded — $13,217 Verified Buffer ✅</p>
-                            <p class="text-green-100 text-sm mt-1">$94,145 confirmed aid − $77,628 off-campus COA = <strong>+$16,517</strong> gross. Correcting for SNAP food restriction (−$3,300): <strong>+$13,217 true flexible buffer</strong>. TA confirmed. RIT appeal granted. All ACCES-VR components locked.</p>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
 
@@ -777,14 +766,16 @@
             // Transportation: $1,000  (unchanged)
             // Other:            $790  (unchanged)
             // TOTAL:         $78,523  (was $85,093 — saves $6,570/yr)
-            const coaTotal = 77628;
+            const coaTotal = 85723;
 
             const costData = {
-                tuition:        65038,  // tuition + all fees + orientation
-                housingBoard:   10800,  // off-campus apartment $900/month × 12
-                booksSupplies:   1000,  // covered by ACCES-VR course materials
-                transportation:     0,  // DSO shuttle confirmed
-                other:            790
+                tuition:        67723,  // tuition + all fees + orientation
+                fees:            1325,  
+                booksSupplies:   1100,  // covered by ACCES-VR course materials
+                transportation:  1000,  // DSO shuttle confirmed
+                mealplan:        7800,  
+                housingBoard:   10200,  // off-campus apartment $900/month × 12
+                other:            700
             };
 
             // ── SECONDARY FUNDRAISING GOAL (quality of life) ──
@@ -804,7 +795,7 @@
                 { name: 'ACCES-VR — Fees ($950/sem)', secured: 1900, description: 'Mandatory fees component · $950/semester · $1,900/year.', color: '#7c3aed' },
                 { name: 'ACCES-VR — Housing ($3,000/sem)', secured: 6000, description: 'Off-campus housing support · $3,000/semester · $6,000/year. Applied toward apartment rent alongside TA assistance.', color: '#8b5cf6' },
                 { name: 'ACCES-VR — Course Materials ($915/sem)', secured: 1830, description: 'Confirmed June 2026: books, calculators, lab supplies. $915/semester = $1,830/year. Exceeds $1,000 COA books budget by $830.', color: '#a78bfa' },
-                { name: 'Monroe Co. TA — Rent (confirmed)', secured: 4560, description: '$380/month × 12 = $4,560/year. Confirmed for off-campus apartment. Applied directly toward rent. Recertify every 6 months with Monroe Co. DHS.', color: '#0f6e56' },
+                { name: 'Monroe Co. TA — Rent (pending)', secured: 4560, description: '$380/month × 12 = $4,560/year. Pending confirmation for off-campus apartment. Applied directly toward rent. Recertify every 6 months with Monroe Co. DHS.', color: '#0f6e56' },
                 { name: 'SNAP / EBT Benefits',  secured: 3300, description: '$275/month × 12 = $3,300/year. Food-only EBT card — covers groceries. Cannot be applied to rent, tuition, or TigerBucks.', color: '#10b981' },
                 { name: 'Brandon — Deposit #1 (2025)', secured: 500,  description: 'Brandon\'s first $500 deposit made in 2025 during the first enrollment attempt. Held and carried forward when funding fell short. Applied to Connor\'s COA commitment.', color: '#f59e0b' },
                 { name: 'Brandon — Deposit #2 (2026)', secured: 500,  description: 'Brandon\'s second $500 deposit confirming renewed commitment for Fall 2026 enrollment. Together with Deposit #1, represents a $1,000 sibling investment in Connor\'s future.', color: '#d97706' },
@@ -899,7 +890,7 @@
                     new Chart(ctxCost, {
                         type: 'doughnut',
                         data: {
-                            labels: ['Tuition & Fees ($65,038)', 'Apartment Rent ($10,800)', 'Books & Supplies ($1,000)', 'Transportation ($0)', 'Other ($790)'],
+                            labels: ['Tuition & Fees ($63,508)', 'Apartment Rent ($10,200)', 'Books & Supplies ($1,100)', 'Transportation ($1000)', 'Other ($790)'],
                             datasets: [{
                                 data: [costData.tuition, costData.housingBoard, costData.booksSupplies, costData.transportation, costData.other],
                                 backgroundColor: ['#7c3aed', '#059669', '#ddd6fe', '#e9d5ff', '#f5f3ff'],
