@@ -680,14 +680,14 @@
                         <span class="text-xl shrink-0">🐯</span>
                         <div>
                             <p class="font-bold text-white text-sm leading-tight">RIT Branded Gear</p>
-                            <p class="text-amber-300 font-black text-base">$106</p>
+                            <p class="text-amber-300 font-black text-base">$0</p>
                         </div>
                     </div>
                     <div class="bg-white/10 rounded-xl px-4 py-3 flex items-center gap-3">
                         <span class="text-xl shrink-0">🎯</span>
                         <div>
                             <p class="font-bold text-white text-sm leading-tight">Campus Life Buffer</p>
-                            <p class="text-amber-300 font-black text-base">$300</p>
+                            <p class="text-amber-300 font-black text-base">$0</p>
                         </div>
                     </div>
                 </div>
@@ -779,7 +779,7 @@
             };
 
             // ── SECONDARY FUNDRAISING GOAL (quality of life) ──
-            const secondaryGoal = ref(2069);
+            const secondaryGoal = ref(2350);
 
             // ── PRIMARY AID SOURCES (covers COA) ──
             const primarySources = ref([
@@ -859,7 +859,7 @@
             // cashTotal drives the gap calculation — in-kind value is already reflected in secondaryGoal
             const cashTotal    = computed(() => donors.value.filter(d => d.type === 'cash').reduce((sum, d) => sum + d.amount, 0));
             const inKindTotal  = computed(() => donors.value.filter(d => d.type === 'inkind').reduce((sum, d) => sum + d.amount, 0));
-            const donationsTotal = computed(() => cashTotal.value);  // reactive alias
+            const donationsTotal = computed(() => cashTotal.value + inKindTotal.value);  // reactive alias
             const gapAmount = computed(() => Math.max(0, secondaryGoal.value - donationsTotal.value));
 
             const shareCampaign = async () => {
